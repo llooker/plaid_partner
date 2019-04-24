@@ -1,25 +1,26 @@
 view: access_device {
   sql_table_name: looker_8b0c0edb655a1bc8166e7fb926ec20f9.access_device ;;
 
-  dimension_group: date {
-    type: time
-    timeframes: [
-      raw,
-      hour,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    convert_tz: no
-    datatype: date
+
+  dimension: sync_hour {
+    type: string
+    hidden: yes
     sql: ${TABLE}.sync_hour ;;
   }
 
-  dimension: test {
-    type: string
-    sql: ${TABLE}.sync_hour ;;
+  dimension: date {
+    type: date
+    sql: CAST(SUBSTR(${sync_hour}, 1, 10) AS TIMESTAMP) ;;
+  }
+
+  dimension: hour_of_day {
+    type: number
+    sql: SUBSTR(${sync_hour}, 12, 2) ;;
+  }
+
+  dimension: hour {
+    type: date_raw
+    sql: CAST(CONCAT(CONCAT(CONCAT(CAST(${date} AS STRING), ' '), ${hour_of_day}), ':00:00') AS TIMESTAMP) ;;
   }
 
   dimension: device {
