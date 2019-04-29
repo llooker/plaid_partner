@@ -43,12 +43,13 @@ view: pageview_sequence {
 
   measure: count {
     type: count
-    drill_fields: []
+    drill_fields: [detail*]
   }
 
   measure: session_count {
     type: count_distinct
     sql: ${session_id} ;;
+    drill_fields: [detail*]
   }
 
   measure: bounce_session_count {
@@ -62,11 +63,17 @@ view: pageview_sequence {
       field: pageview_sequence
       value: "1"
     }
+    drill_fields: [detail*]
   }
 
   measure: bounce_rate {
     type: number
     sql: ${bounce_session_count} / NULLIF(${session_count},0) ;;
     value_format_name: percent_2
+    drill_fields: [detail*]
+  }
+
+  set: detail {
+    fields: [sync_time, session_id, user_id, pageview_sequence, url]
   }
 }
