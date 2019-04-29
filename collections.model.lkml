@@ -6,3 +6,5 @@ include: "*.view.lkml"                       # include all views in this project
 explore: access_device {}
 
 explore: events {}
+
+explore: pageview_sequence {}
