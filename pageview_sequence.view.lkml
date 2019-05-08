@@ -34,6 +34,10 @@ view: pageview_sequence {
   dimension: url {
     type: string
     sql: ${TABLE}.url ;;
+    link: {
+      url: "{{value}}"
+      label: "リンク"
+    }
   }
 
   dimension: user_id {
