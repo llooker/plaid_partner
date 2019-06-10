@@ -21,6 +21,11 @@ view: events {
     sql: ${TABLE}.session_id ;;
   }
 
+  dimension: session_sequence {
+    type: number
+    sql: ${TABLE}.session_sequence ;;
+  }
+
   dimension_group: sync {
     type: time
     timeframes: [
