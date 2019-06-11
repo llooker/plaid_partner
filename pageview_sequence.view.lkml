@@ -40,6 +40,11 @@ view: pageview_sequence {
     }
   }
 
+  dimension: cleaned_url {
+    type: string
+    sql: REPLACE(${url},'https://ja.looker.com','') ;;
+  }
+
   dimension: user_id {
     type: string
     sql: ${TABLE}.user_id ;;
@@ -77,7 +82,17 @@ view: pageview_sequence {
     drill_fields: [detail*]
   }
 
+  measure: max_sequence {
+    type: max
+    sql: ${pageview_sequence} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [sync_time, session_id, user_id, pageview_sequence, url]
+  }
+
+  set: export_set {
+    fields: [session_id, sync_raw, url,cleaned_url, user_id, count, session_count]
   }
 }
