@@ -4,15 +4,15 @@ include: "*.view.lkml"                       # include all views in this project
 # include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
 
 explore: access_device {
-  label: "Access Device"
+  label: "デバイス関連"
 }
 
 explore: events {
-  label: "Events"
+  label: "イベント関連"
 }
 
 explore: pageview_sequence {
-  label: "Sequenced Pageview"
+  label: "PVトレンド"
   join: next_pageview {
     from: pageview_sequence
     relationship: many_to_one
@@ -23,7 +23,7 @@ explore: pageview_sequence {
 
 explore: event_1 {
   from: pageview_sequence
-  label: "Visitor Flow"
+  label: "ビジタージャーニー"
   fields: [event_1.pageview_sequence, event_1.sync_date, event_1.export_set*,event_2.export_set*,event_3.export_set*,event_4.export_set*]
   always_filter: {
     filters: {
