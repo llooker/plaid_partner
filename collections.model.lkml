@@ -56,3 +56,7 @@ explore: event_1 {
   }
 
 }
+
+explore: nps {
+  label: "NPSスコア"
+}
