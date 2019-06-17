@@ -7,8 +7,9 @@ view: nps {
   }
 
   dimension: question_1 {
-    type: string
-    sql: ${TABLE}.question_1 ;;
+    type: number
+    sql: CAST(${TABLE}.question_1 as NUMERIC) ;;
+
   }
 
   dimension: question_2 {
@@ -43,5 +44,16 @@ view: nps {
   measure: count {
     type: count
     drill_fields: []
+  }
+
+  measure: average_nps_score {
+    type: average
+    sql: ${question_1} ;;
+    value_format: "#.00"
+  }
+
+  measure: user_count {
+    type: count_distinct
+    sql: ${user_id} ;;
   }
 }
