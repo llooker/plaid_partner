@@ -9,7 +9,16 @@ view: nps {
   dimension: question_1 {
     type: number
     sql: CAST(${TABLE}.question_1 as NUMERIC) ;;
+  }
 
+  dimension: nps_category {
+    type: string
+    sql:
+      CASE
+        WHEN ${question_1} <= 3 THEN 'DETRACTOR'
+        WHEN ${question_1} >= 7 THEN 'PROMOTER'
+        ELSE 'NEUTRAL'
+      END ;;
   }
 
   dimension: question_2 {
