@@ -10,15 +10,15 @@ datagroup: every_10_minutes {
 persist_with: every_10_minutes
 
 explore: access_device {
-  label: "デバイス関連"
+  label: "(1) Events by Device"
 }
 
 explore: events {
-  label: "イベント関連"
+  label: "(2) Events"
 }
 
 explore: pageview_sequence {
-  label: "PVトレンド"
+  label: "(3) Pageviews"
   join: next_pageview {
     from: pageview_sequence
     relationship: many_to_one
@@ -29,7 +29,7 @@ explore: pageview_sequence {
 
 explore: event_1 {
   from: pageview_sequence
-  label: "ビジタージャーニー"
+  label: "(4) Visitor Journey"
   fields: [event_1.pageview_sequence, event_1.sync_date, event_1.export_set*,event_2.export_set*,event_3.export_set*,event_4.export_set*]
   always_filter: {
     filters: {
@@ -64,5 +64,5 @@ explore: event_1 {
 }
 
 explore: nps {
-  label: "NPSスコア"
+  label: "(5) Net Promoter Score"
 }
