@@ -3,6 +3,12 @@ connection: "plaid-bigquery"
 include: "*.view.lkml"                       # include all views in this project
 # include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
 
+datagroup: every_10_minutes {
+  max_cache_age: "10 minutes"
+}
+
+persist_with: every_10_minutes
+
 explore: access_device {
   label: "デバイス関連"
 }

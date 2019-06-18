@@ -1,5 +1,5 @@
 view: nps {
-  sql_table_name: looker_8b0c0edb655a1bc8166e7fb926ec20f9.nps ;;
+  sql_table_name: `prd-karte-per-client.looker_8b0c0edb655a1bc8166e7fb926ec20f9.nps` ;;
 
   dimension: campaign_id {
     type: string
