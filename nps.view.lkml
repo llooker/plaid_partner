@@ -6,30 +6,35 @@ view: nps {
     sql: ${TABLE}.campaign_id ;;
   }
 
-  dimension: question_1 {
+  dimension: score {
     type: number
-    sql: CAST(${TABLE}.question_1 as NUMERIC) ;;
+    sql: CAST(${TABLE}.score as NUMERIC) ;;
   }
 
   dimension: nps_category {
     type: string
     sql:
       CASE
-        WHEN ${question_1} <= 3 THEN 'DETRACTOR'
-        WHEN ${question_1} >= 7 THEN 'PROMOTER'
+        WHEN ${score} <= 3 THEN 'DETRACTOR'
+        WHEN ${score} >= 7 THEN 'PROMOTER'
         ELSE 'NEUTRAL'
       END ;;
   }
 
-  dimension: question_2 {
+  dimension: comment {
     type: string
-    sql: ${TABLE}.question_2 ;;
+    sql: ${TABLE}.comment ;;
   }
 
-  dimension: shorten_id {
+  dimension: segment_name {
     type: string
-    sql: ${TABLE}.shorten_id ;;
+    sql: ${TABLE}.segment_name ;;
   }
+
+#   dimension: shorten_id {
+#     type: string
+#     sql: ${TABLE}.shorten_id ;;
+#   }
 
   dimension_group: sync {
     type: time
@@ -57,7 +62,7 @@ view: nps {
 
   measure: average_nps_score {
     type: average
-    sql: ${question_1} ;;
+    sql: ${score} ;;
     value_format: "#.00"
   }
 
