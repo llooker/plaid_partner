@@ -61,7 +61,8 @@ view: nps {
   }
 
   measure: average_nps_score {
-    type: average
+    type: average_distinct
+    sql_distinct_key: ${user_id} ;;
     sql: ${score} ;;
     value_format: "#.00"
   }
