@@ -1,5 +1,5 @@
 view: events {
-  sql_table_name: `prd-karte-per-client.looker_8b0c0edb655a1bc8166e7fb926ec20f9.events` ;;
+  sql_table_name: `prd-karte-per-client.@{dataset_name}.events` ;;
 
   dimension: event_name {
     type: string

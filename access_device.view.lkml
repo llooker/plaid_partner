@@ -1,5 +1,5 @@
 view: access_device {
-  sql_table_name: `prd-karte-per-client.looker_8b0c0edb655a1bc8166e7fb926ec20f9.access_device` ;;
+  sql_table_name: `prd-karte-per-client.@{dataset_name}.access_device` ;;
 
 
   dimension: sync_hour {
