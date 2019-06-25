@@ -60,7 +60,45 @@ view: nps {
     drill_fields: [detail*]
   }
 
-  measure: average_nps_score {
+  measure: responder_count {
+    type: count_distinct
+    sql: ${user_id} ;;
+  }
+
+  measure: promoter_count {
+    type: count_distinct
+    sql: ${user_id} ;;
+    filters: {
+      field: nps_category
+      value: "1. PROMOTER"
+    }
+  }
+
+  measure: detractor_count {
+    type: count_distinct
+    sql: ${user_id} ;;
+    filters: {
+      field: nps_category
+      value: "3. DETRACTOR"
+    }
+  }
+
+  measure: neutral_count {
+    type: count_distinct
+    sql: ${user_id} ;;
+    filters: {
+      field: nps_category
+      value: "2. NEUTRAL"
+    }
+  }
+
+  measure: net_promoter_score {
+    type: number
+    sql: (${promoter_count} - ${detractor_count}) / NULLIF(${user_count},0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: average_score {
     type: average_distinct
     sql_distinct_key: ${user_id} ;;
     sql: ${score} ;;
