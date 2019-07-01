@@ -45,6 +45,11 @@ view: events {
   dimension: user_id {
     type: string
     sql: ${TABLE}.user_id ;;
+    link: {
+      label: "KARTE User Story"
+      icon_url: "https://admin.karte.io/images/baisu/logo_mark.svg"
+      url: "https://admin.karte.io/p/5cb424903f26a2098d000174/user/{{value}}"
+    }
   }
 
   dimension: visitor_id {
