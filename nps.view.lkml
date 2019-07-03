@@ -138,7 +138,12 @@ view: nps {
     drill_fields: [detail*]
   }
 
+  measure: segment_list {
+    type: string
+    sql: ARRAY_AGG(DISTINCT ${segment_name}) ;;
+  }
+
   set: detail {
-    fields: [campaign_id, sync_date, user_id, score, comment]
+    fields: [campaign_id, sync_date, user_id, score, comment, segment_list]
   }
 }
