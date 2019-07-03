@@ -102,7 +102,7 @@ view: nps {
   measure: net_promoter_score {
     type: number
     sql: 100.0* (${promoter_count} - ${detractor_count}) / NULLIF(${user_count},0) ;;
-    value_format_name: percent_2
+    value_format_name: decimal_2
     drill_fields: [detail*]
   }
 
