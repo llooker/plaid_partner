@@ -101,7 +101,7 @@ view: nps {
 
   measure: net_promoter_score {
     type: number
-    sql: (${promoter_count} - ${detractor_count}) / NULLIF(${user_count},0) ;;
+    sql: 100.0* (${promoter_count} - ${detractor_count}) / NULLIF(${user_count},0) ;;
     value_format_name: percent_2
     drill_fields: [detail*]
   }
@@ -120,7 +120,25 @@ view: nps {
     drill_fields: [detail*]
   }
 
+  measure: cumulative_responder_count {
+    type: running_total
+    sql: ${user_count} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: cumulative_promoter_count {
+    type: running_total
+    sql: ${promoter_count} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: cumulative_detractor_count {
+    type: running_total
+    sql: ${detractor_count} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail {
-    fields: [campaign_id, sync_date, segment_name, user_id, score, comment]
+    fields: [campaign_id, sync_date, user_id, score, comment]
   }
 }
