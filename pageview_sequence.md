@@ -1,3 +1,5 @@
+The following query is used to create the `pageview_sequence` table in KARTE Datahub that is the basis for the `pageview_sequence` view in this Looker Block.
+
 ```
 {% set period_of_days = "180" %}
 

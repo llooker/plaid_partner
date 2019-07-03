@@ -1,5 +1,7 @@
+The following query is used to create the `events` table in KARTE Datahub that is the basis for the `events` view in this Looker Block.
+
 ```
-{% set period_of_days = "30" %}
+{% set period_of_days = "180" %}
 
 SELECT
   sync_date

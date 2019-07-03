@@ -1,7 +1,9 @@
+The following query is used to create the `nps` table in KARTE Datahub that is the basis for the `nps` view in this Looker Block.
+
 ```
 {% set campaign_ids = "5d00182164a04c08d4ade4cd" %}
 {% set period_of_days = "180" %}
-{% set api_key = "8b0c0edb655a1bc8166e7fb926ec20f9" %}
+{% set api_key = "INSERT YOUR API KEY HERE" %}
 {% set segment_ids = "5cb424913f26a2098d000186,5cb424913f26a2098d000189, 5cb424913f26a2098d00018e, 5cb424913f26a2098d000190, 5cb424913f26a2098d000193, 5cb424913f26a2098d000197, 5cb424913f26a2098d00019a, 5cb424913f26a2098d00019e, 5cb424913f26a2098d0001a1, 5cb424913f26a2098d0001a5" %}
 
 WITH segment_ids_array_for_conditions AS (

@@ -4,7 +4,7 @@
 
 **(2) Expertise** - Leverage Plaid and Looker's expertise in web analytics and customer success through turnkey dashboards.
 
-**(3) No DWH Setup** - This block is made to interact with KARTE's DataHub, a BigQuery-based user activity tracking database, so you don't have to use valuable engineering time to set up your data infrastructure.
+**(3) No DWH Setup** - This block is made to interact with KARTE Datahub, a BigQuery-based user activity tracking database, so you don't have to use valuable engineering time to set up your data infrastructure.
 
 ### Block Info
 This Block combines KARTE's robust user behavioral data with Looker's powerful data exploration capabilities to help users understand their customer behavior patterns with out-of-the-box dashboards and reports featuring the most common page view funnel, visitor and session trends, most popular devices used on your site, your Net Promoter Score, and more.
@@ -19,6 +19,7 @@ This block is based on KARTE DataHub, a Plaid service offering that allows users
 * **Net Promoter Score**: Provides a comprehensive view into your Net Promoter Score and the ability to slice and dice NPS by device, visitor segment, campaign, and date.
 
 ### Required Customization
+
 #### In Looker
 * **Turn On Project Import**: In order to use the project manifest file for dataset name declaration, project import needs to be turned on under the Admin > Labs section.
 * **Declare Dataset Name**: You need to declare your dataset name in the `dataset_name` constant in the project manifest file.
