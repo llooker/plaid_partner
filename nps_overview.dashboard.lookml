@@ -121,21 +121,6 @@
     col: 0
     width: 7
     height: 6
-  - name: Bounce Rate
-    title: Bounce Rate
-    model: collections
-    explore: pageview_sequence
-    type: single_value
-    fields: [pageview_sequence.bounce_rate]
-    limit: 500
-    column_limit: 50
-    series_types: {}
-    listen:
-      Date: next_pageview.sync_date
-    row: 0
-    col: 20
-    width: 4
-    height: 3
   - name: NPS by Segment
     title: NPS by Segment
     model: collections
@@ -392,6 +377,21 @@
     col: 0
     width: 24
     height: 8
+  - name: Bounce Rate
+    title: Bounce Rate
+    model: collections
+    explore: pageview_sequence
+    type: single_value
+    fields: [pageview_sequence.bounce_rate]
+    limit: 500
+    column_limit: 50
+    series_types: {}
+    listen:
+      Date: pageview_sequence.sync_date
+    row: 0
+    col: 20
+    width: 4
+    height: 3
   filters:
   - name: Date
     title: Date
