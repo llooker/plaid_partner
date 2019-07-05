@@ -4,6 +4,7 @@ The following query is used to create the `nps` table in KARTE Datahub that is t
 {% set campaign_ids = "5d00182164a04c08d4ade4cd" %}
 {% set period_of_days = "180" %}
 {% set api_key = "INSERT YOUR API KEY HERE" %}
+-- Choose which segments you would like KARTE Datahub to include in your results below:
 {% set segment_ids = "5cb424913f26a2098d000186,5cb424913f26a2098d000189, 5cb424913f26a2098d00018e, 5cb424913f26a2098d000190, 5cb424913f26a2098d000193, 5cb424913f26a2098d000197, 5cb424913f26a2098d00019a, 5cb424913f26a2098d00019e, 5cb424913f26a2098d0001a1, 5cb424913f26a2098d0001a5" %}
 
 WITH segment_ids_array_for_conditions AS (
