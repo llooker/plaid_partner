@@ -1,6 +1,13 @@
 view: nps {
   sql_table_name: `prd-karte-per-client.@{dataset_name}.nps` ;;
 
+  dimension: primary_key {
+    type: string
+    primary_key: yes
+    hidden: yes
+    sql: CONCAT(${user_id}, '-', ${segment_name}, '-', CAST(${sync_raw} AS string)) ;;
+  }
+
   dimension: campaign_id {
     type: string
     sql: ${TABLE}.campaign_id ;;
