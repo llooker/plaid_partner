@@ -114,8 +114,9 @@ view: nps {
   }
 
   measure: average_score {
-    type: average_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: average
+#     type: average_distinct
+#     sql_distinct_key: ${primary_key} ;;
     sql: ${score} ;;
     value_format: "#.00"
     drill_fields: [detail*]
