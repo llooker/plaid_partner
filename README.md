@@ -22,7 +22,7 @@ This block is based on KARTE DataHub, a Plaid service offering that allows users
 
 #### In Looker
 * **Turn On Project Import**: In order to use the project manifest file for dataset name declaration, project import needs to be turned on under the Admin > Labs section.
-* **Declare Dataset Name**: You need to declare your dataset name in the `dataset_name` constant in the project manifest file.
+* **Declare Dataset Name and Organization ID**: You need to declare your dataset name in the `dataset_name` and `organization_id` constants in the project manifest file.
 
 #### In KARTE
 * **Create Job Flows**: There needs to be a set of job flows (i.e. automatically triggered queries) in KARTE DataHub to create and refresh tables Looker will use for queries.
