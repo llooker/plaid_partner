@@ -65,7 +65,7 @@ view: nps {
     link: {
       label: "KARTE User Story"
       icon_url: "https://admin.karte.io/images/baisu/logo_mark.svg"
-      url: "https://admin.karte.io/p/5cb424903f26a2098d000174/user/{{value}}"
+      url: "https://admin.karte.io/p/@{organization_id}/user/{{value}}"
     }
   }
 
