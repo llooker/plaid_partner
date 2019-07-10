@@ -1,7 +1,7 @@
 The following query is used to create the `access_device` table in KARTE Datahub that is the basis for the `access_device` view in this Looker Block.
 
 ```
-{% set period_of_days = "180" %} -- 抽出期間（日単位）を指定
+{% set period_of_days = "180" %}
 
 WITH view_data AS (
   SELECT
