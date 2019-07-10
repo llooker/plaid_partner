@@ -1,7 +1,7 @@
 The following query is used to create the `access_device` table in KARTE Datahub that is the basis for the `access_device` view in this Looker Block.
 
 ```
-{% set period_of_days = "180" %}
+{% set period_of_days = "180" %} -- 抽出期間（日単位）を指定
 
 WITH view_data AS (
   SELECT
@@ -16,7 +16,7 @@ WITH view_data AS (
 )
 
 SELECT
-　DATE(sync_date) AS date
+　FORMAT_TIMESTAMP('%F %H', sync_date) as sync_hour
   , CASE
       WHEN os_name = "Windows" THEN "PC"
       WHEN os_name = "Mac OS" THEN "PC"
@@ -30,7 +30,7 @@ SELECT
 FROM
   view_data
 GROUP BY
-  device, date
+  device, sync_hour
 ORDER BY
   UU DESC
 ```
