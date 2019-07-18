@@ -22,8 +22,10 @@ This block is based on KARTE DataHub, a Plaid service offering that allows users
 
 #### In Looker
 * **Turn On Project Import**: In order to use the project manifest file for dataset name declaration, project import needs to be turned on under the Admin > Labs section.
+* **Set Project Name to Your Service Account Project**: While the dataset will show up in KARTE as a part of the `prd-karte-per-client` project, you will be accessing it through your service account project (most likely `prd-karte-service-account-2`). Otherwise, you will get a BigQuery permission error.
 * **Declare Dataset Name and Organization ID**: You need to declare your dataset name in the `dataset_name` and `organization_id` constants in the project manifest file.
 
 #### In KARTE
 * **Create Job Flows**: There needs to be a set of job flows (i.e. automatically triggered queries) in KARTE DataHub to create and refresh tables Looker will use for queries.
 * **Create A Service Account**: You'll need to create a new GCP service account in KARTE DataHub in order for Looker to query your KARTE data.
+* **Share the Newly Created Dataset**: Click on the ellipses next to the project name, and share the dataset with the service account.
